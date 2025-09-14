@@ -1,0 +1,12 @@
+services:
+  nuxt:
+    build: .
+    volumes:
+      # コンテナ内からホスト側のファイルを参照できるようにする
+      - .:/app
+    ports:
+      # ホスト側の3000番ポートをコンテナ内の3000番ポートにマッピング
+      # localhost:3000でアクセスするために必要
+      - 3000:3000
+    command: npm run dev
+    tty: true
